@@ -1,4 +1,5 @@
 ﻿using InterviewTestApp.Interfaces;
+using InterviewTestApp.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,17 +10,16 @@ namespace InterviewTestApp.Controllers
     public class HealthCheckController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IHealthCheckRepository _repo;
+        private readonly IHealthCheckService _repo;
 
-        public HealthCheckController(ILogger<WeatherForecastController> logger, IHealthCheckRepository repo)
+        public HealthCheckController(IHealthCheckService repo)
         {
-            _logger = logger;
             _repo = repo;
         }
         [HttpGet]
         public IActionResult GetMessage()
         {
-            return Ok(_repo.GetHealthCheck(2).Result.Message);
+            return Ok(_repo.GetHealthCheckMessage().Result);
         }
     }
 }

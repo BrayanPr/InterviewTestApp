@@ -27,9 +27,9 @@ namespace InterviewTestApp.Infrestructure.Database
             modelBuilder.ApplyConfiguration(new TableWeatherForecastConf());
 
             modelBuilder.Entity<TableWeatherForecast>()
-               .HasData(new TableWeatherForecast { Id = 1 /*Guid.Parse("c2c72824-3313-483b-8648-002ebd14c90e")*/, Date = DateTime.Now, Description = "Dreary Weather!", TemperatureCelseus = 20, WeatherTypeId = 1 },
-                new TableWeatherForecast { Id = 2 /*Guid.Parse("cf25592f-8fa4-4ec4-b0da-cf5c120e8cc4")*/, Date = DateTime.Now, Description = "Cold Weather!", TemperatureCelseus = 5, WeatherTypeId = 2 },
-                new TableWeatherForecast { Id = 3 /*Guid.Parse("3f9cd820-0750-4237-8fb9-263cfebe7c84")*/, Date = DateTime.Now, Description = "Hot Weather!", TemperatureCelseus = 40, WeatherTypeId = 3 });
+               .HasData(new TableWeatherForecast { Id = Guid.Parse("c2c72824-3313-483b-8648-002ebd14c90e"), Date = DateTime.Now, Description = "Dreary Weather!", TemperatureCelseus = 20, WeatherTypeId = 1 },
+                new TableWeatherForecast { Id = Guid.Parse("cf25592f-8fa4-4ec4-b0da-cf5c120e8cc4"), Date = DateTime.Now, Description = "Cold Weather!", TemperatureCelseus = 5, WeatherTypeId = 2 },
+                new TableWeatherForecast { Id = Guid.Parse("3f9cd820-0750-4237-8fb9-263cfebe7c84"), Date = DateTime.Now, Description = "Hot Weather!", TemperatureCelseus = 40, WeatherTypeId = 3 });
 
             modelBuilder.ApplyConfiguration(new HealthCheckConf());
             modelBuilder.Entity<HealthCheck>()

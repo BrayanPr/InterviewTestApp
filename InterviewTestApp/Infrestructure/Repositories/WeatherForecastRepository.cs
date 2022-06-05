@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InterviewTestApp.Infrestructure.Repositories
 {
-    public class WeatherForecastRepository : IWeatherForecast
+    public class WeatherForecastRepository : IWeatherForecastRepository
     {
         private readonly MyDbContext _dbContext;
 
@@ -20,7 +20,7 @@ namespace InterviewTestApp.Infrestructure.Repositories
             var output = new List<WeatherForecast>();
 
             items.ForEach(i =>
-            {
+            
                 output.Add(new WeatherForecast
                 {
                     Date = i.Date.ToString(),
@@ -28,15 +28,15 @@ namespace InterviewTestApp.Infrestructure.Repositories
                     TemperatureC = (int)i.TemperatureCelseus,
                     TemperatureF = 32 + (int)(i.TemperatureCelseus / 0.5556),
                     WeatherType = (Typeofweatherenum)i.WeatherTypeId
-                });
-            });
+                })
+            );
 
             return output;
         }
 
         public async Task<WeatherForecast> GetForecast(int id)
         {
-            var item = await _dbContext.WeatherForecasts.FindAsync(id);
+            var item = _dbContext.WeatherForecasts.Where( x=> x.WeatherTypeId == id).First();
             WeatherForecast singleOutput = singleOutput = new WeatherForecast
             {
                 Date = item.Date.ToString(),

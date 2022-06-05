@@ -1,14 +1,16 @@
 using InterviewTestApp.Infrestructure.Database;
 using InterviewTestApp.Infrestructure.Repositories;
 using InterviewTestApp.Interfaces;
+using InterviewTestApp.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IWeatherForecast, WeatherForecastRepository>();
+builder.Services.AddScoped<IWeatherForecastRepository, WeatherForecastRepository>();
+builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddScoped<IHealthCheckRepository, HealthCheckRepository>();
-
+builder.Services.AddScoped<IHealthCheckService, HealthCheckService>();
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseInMemoryDatabase("TestDatabase"));
 

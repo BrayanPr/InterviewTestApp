@@ -14,9 +14,9 @@ namespace InterviewTestApp.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IWeatherForecast _repo;
+        private readonly IWeatherForecastService _repo;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecast repo)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecastService repo)
         {
             _logger = logger;
             _repo = repo;

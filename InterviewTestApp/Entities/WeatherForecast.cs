@@ -25,7 +25,7 @@ namespace InterviewTestApp.Entities
 
     public class TableWeatherForecast
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime Date { get; set; }
         public int WeatherTypeId { get; set; }
         public virtual LstWeatherType? WeatherType { get; set; } = null;

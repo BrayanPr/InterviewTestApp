@@ -2,9 +2,9 @@
 
 namespace InterviewTestApp.Interfaces
 {
-    public interface IWeatherForecast
+    public interface IWeatherForecastService
     {
-        List<WeatherForecast> GetAllForecasts();
+        public List<WeatherForecast> GetAllForecasts();
         Task<WeatherForecast> GetForecast(int id);
     }
 }
