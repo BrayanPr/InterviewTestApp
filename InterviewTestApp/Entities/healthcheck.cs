@@ -1,4 +1,4 @@
-﻿namespace InterviewTestApp
+﻿namespace InterviewTestApp.Entities
 {
     public class HealthCheck
     {

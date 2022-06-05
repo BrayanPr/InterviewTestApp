@@ -1,10 +1,12 @@
-using InterviewTestApp;
+using InterviewTestApp.Infrestructure.Database;
+using InterviewTestApp.Infrestructure.Repositories;
+using InterviewTestApp.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<DbRepositoryInterface, DbRepository>();
+builder.Services.AddScoped<IWeatherForecast, WeatherForecastRepository>();
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseInMemoryDatabase("TestDatabase"));
 

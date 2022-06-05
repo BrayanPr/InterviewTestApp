@@ -1,4 +1,4 @@
-namespace InterviewTestApp
+namespace InterviewTestApp.Entities
 {
     public class WeatherForecast
     {
@@ -12,20 +12,20 @@ namespace InterviewTestApp
     public enum Typeofweatherenum
     {
         RAIN = 1,
-        SNOW,
-        SUN
+        SNOW = 2,
+        SUN = 3
     }
 
     public class LstWeatherType
     {
         public int Id { get; set; }
         public string? Type { get; set; }
-        public virtual ICollection<TableWeatherForecast> WeatherForecasts { get; set; }
+        public virtual ICollection<TableWeatherForecast>? WeatherForecasts { get; set; }
     }
 
     public class TableWeatherForecast
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public int WeatherTypeId { get; set; }
         public virtual LstWeatherType? WeatherType { get; set; } = null;

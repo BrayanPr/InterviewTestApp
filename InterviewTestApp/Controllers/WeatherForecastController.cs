@@ -1,3 +1,5 @@
+using InterviewTestApp.Entities;
+using InterviewTestApp.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InterviewTestApp.Controllers
@@ -12,16 +14,16 @@ namespace InterviewTestApp.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly DbRepositoryInterface _repo;
+        private readonly IWeatherForecast _repo;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, DbRepositoryInterface repo)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherForecast repo)
         {
             _logger = logger;
             _repo = repo;
         }
 
         [HttpPost(Name = "GetWeatherForecast")]
-        public IActionResult Post(string id)
+        public IActionResult Post(int id)
         {
             return Ok(_repo.GetForecast(id).Result);
         }
