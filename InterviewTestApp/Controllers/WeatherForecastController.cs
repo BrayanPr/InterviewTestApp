@@ -22,16 +22,16 @@ namespace InterviewTestApp.Controllers
             _repo = repo;
         }
 
-        [HttpPost(Name = "GetWeatherForecast")]
-        public IActionResult Post(int id)
-        {
-            return Ok(_repo.GetForecast(id).Result);
-        }
-
-        [HttpGet(Name = "GetAllWeatherForecasts")]
+        [HttpGet]
         public IEnumerable<WeatherForecast> GetAll()
         {
             return _repo.GetAllForecasts();
+        }
+        
+        [HttpGet("{id}")]
+        public IActionResult GetByID(int id)
+        {
+            return Ok(_repo.GetForecast(id).Result);
         }
     }
 }
